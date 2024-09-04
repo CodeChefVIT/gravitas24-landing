@@ -7,5 +7,4 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit"
   },
-  "githubPullRequests.ignoredPullRequestBranches": ["master"]
 }
