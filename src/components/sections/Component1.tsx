@@ -1,6 +1,7 @@
 import React from "react";
 import GeneralComponent from "../GeneralComponent";
 
+
 const Component1 = () => {
   return (
     <div>
