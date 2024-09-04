@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const StickyStack: React.FC = () => {
@@ -25,9 +26,6 @@ const StickyStack: React.FC = () => {
     <div className="relative">
       {/* Top Stacks */}
       <div className="flex">
-        {/* Vertical Text for Cookoff */}
-       
-
         {/* Top Left Stack */}
         <div className="flex-1 relative">
           {topLeftStackData.map((card, index) => (
@@ -36,30 +34,29 @@ const StickyStack: React.FC = () => {
               className="h-screen sticky top-0 flex items-center justify-center"
               style={{ zIndex: index + 1 }}
             >
-              <img
+              <Image
                 src={card.src}
                 alt={card.alt}
-                style={{
-                  width: '554px',
-                  height: '369px',
-                }
-                }
+                width={554}
+                height={369}
                 className="w-1/2 h-auto max-h-[60%] object-cover rounded-md"
               />
             </div>
           ))}
         </div>
+
+        {/* Vertical Text for Cookoff */}
         <div className="sticky top-0 flex items-center justify-center w-10 h-screen">
-        <div
-              className="text-black flex flex-col justify-center items-center"
-              style={{
-                fontFamily: 'IBM Plex Mono',
-                fontSize: '64px',
-                fontWeight: 700,
-                lineHeight: '60px',
-                textAlign: 'center',
-              }}
-            >
+          <div
+            className="text-black flex flex-col justify-center items-center"
+            style={{
+              fontFamily: 'IBM Plex Mono',
+              fontSize: '64px',
+              fontWeight: 700,
+              lineHeight: '60px',
+              textAlign: 'center',
+            }}
+          >
             <span> C</span>
             <span> O</span>
             <span> O</span>
@@ -69,6 +66,7 @@ const StickyStack: React.FC = () => {
             <span> F</span>
           </div>
         </div>
+
         {/* Spacer */}
         <div className="w-20"></div>
 
@@ -80,14 +78,11 @@ const StickyStack: React.FC = () => {
               className="h-screen sticky top-0 flex items-center justify-center"
               style={{ zIndex: index + 1 }}
             >
-              <img
+              <Image
                 src={card.src}
                 alt={card.alt}
-                style={{
-                  width: '554px',
-                  height: '369px',
-                }
-                }
+                width={554}
+                height={369}
                 className="w-1/2 h-auto max-h-[60%] object-cover rounded-md"
               />
             </div>
@@ -99,33 +94,30 @@ const StickyStack: React.FC = () => {
       <div className="h-20"></div>
 
       {/* Bottom Stacks */}
-     <div className = "bg-[#B7AB98]">
-     <div className="flex mt-10">
-        {/* Bottom Left Stack */}
-        <div className="flex-1 relative">
-          {bottomLeftStackData.map((card, index) => (
-            <div
-              key={index}
-              className="h-screen sticky top-0 flex items-center justify-center"
-              style={{ zIndex: index + 1 }}
-            >
-              <img
-                src={card.src}
-                alt={card.alt}
-                style={{
-                  width: '554px',
-                  height: '369px',
-                }
-                }
-                className="w-1/2 h-auto max-h-[60%] object-cover rounded-md"
-              />
-            </div>
-          ))}
-        </div>
+      <div className="bg-[#B7AB98]">
+        <div className="flex mt-10">
+          {/* Bottom Left Stack */}
+          <div className="flex-1 relative">
+            {bottomLeftStackData.map((card, index) => (
+              <div
+                key={index}
+                className="h-screen sticky top-0 flex items-center justify-center"
+                style={{ zIndex: index + 1 }}
+              >
+                <Image
+                  src={card.src}
+                  alt={card.alt}
+                  width={554}
+                  height={369}
+                  className="w-1/2 h-auto max-h-[60%] object-cover rounded-md"
+                />
+              </div>
+            ))}
+          </div>
 
-        {/* Vertical Text for ClueMinati */}
-        <div className="sticky top-0 flex items-center justify-center w-10 h-screen">
-        <div
+          {/* Vertical Text for ClueMinati */}
+          <div className="sticky top-0 flex items-center justify-center w-10 h-screen">
+            <div
               className="text-black flex flex-col justify-center items-center"
               style={{
                 fontFamily: 'IBM Plex Mono',
@@ -135,43 +127,40 @@ const StickyStack: React.FC = () => {
                 textAlign: 'center',
               }}
             >
-            <span>C</span>
-            <span>L</span>
-            <span>U</span>
-            <span>E</span>
-            <span>M</span>
-            <span>I</span>
-            <span>N</span>
-            <span>A</span>
-            <span>T</span>
-            <span>I</span>
-          </div>
-        </div>
-
-        {/* Bottom Right Stack */}
-        <div className="flex-1 relative">
-          {bottomRightStackData.map((card, index) => (
-            <div
-              key={index}
-              className="h-screen sticky top-0 flex items-center justify-center"
-              style={{ zIndex: index + 1 }}
-            >
-              <img
-                src={card.src}
-                alt={card.alt}
-                style={{
-                  width: '554px',
-                  height: '369px',
-                }
-                }
-                className="w-1/2 h-auto max-h-[60%] object-cover rounded-md"
-              />
+              <span>C</span>
+              <span>L</span>
+              <span>U</span>
+              <span>E</span>
+              <span>M</span>
+              <span>I</span>
+              <span>N</span>
+              <span>A</span>
+              <span>T</span>
+              <span>I</span>
             </div>
-          ))}
+          </div>
+
+          {/* Bottom Right Stack */}
+          <div className="flex-1 relative">
+            {bottomRightStackData.map((card, index) => (
+              <div
+                key={index}
+                className="h-screen sticky top-0 flex items-center justify-center"
+                style={{ zIndex: index + 1 }}
+              >
+                <Image
+                  src={card.src}
+                  alt={card.alt}
+                  width={554}
+                  height={369}
+                  className="w-1/2 h-auto max-h-[60%] object-cover rounded-md"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
-     </div>
   );
 };
 
