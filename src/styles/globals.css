@@ -1,6 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap');
 
 @layer base {
   :root {
@@ -66,4 +71,42 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+.anton-regular {
+  font-family: "Anton", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.audiowide-regular {
+  font-family: "Audiowide", sans-serif !important;
+  font-weight: 500;
+  font-size: 86.112px;
+  text-align: center;
+  font-style: normal;
+  height: 121.415px;
+  
+}
+/* .pirata-one-regular {
+  font-family: "Pirata One", system-ui;
+ font-weight: 500;
+  font-size: 86.112px;
+  text-align: center;
+  font-style: normal;
+  height: 121.415px;
+} */
+
+.raleway-dots-regular {
+  font-family: "Raleway Dots", sans-serif;
+  font-weight: 300;
+  height: 67px;
+  font-style: normal;
+}
+.Codechef_Logo{
+  width: 200px;
+}
+.footer-logo{
+  height: 50px;
+  width: 50px;
+  
 }
