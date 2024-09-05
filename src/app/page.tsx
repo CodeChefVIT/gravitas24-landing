@@ -1,14 +1,20 @@
 import Component1 from "@/components/sections/Component1";
-import Hero from "@/components/sections/Hero";
 import Navbar from "@/components/sections/navbar";
 import Footer from "@/components/sections/footer";
+import StickyStack from '@/components/StickyStack';
+import MarqueeComponent from '../components/MarqueeComponent';
 
 export default function Home() {
+
   return (
     <main>
-     <Navbar/>
-     Add middle components
+
+      <Navbar/>
+      <StickyStack />
+      <MarqueeComponent />
       <Footer/>
+
     </main>
   );
 }
+
