@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@200;300;400;500;600;700;800&display=swap');
 
 @layer base {
   :root {
@@ -79,3 +80,80 @@
   font-weight: 700;
   font-style: normal;
 }
+.mukta-malar-regular {
+  font-family: "Mukta Malar", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+/* About Section */
+/* ********************** */
+.overlay {
+  width: 100%;
+  z-index: 100;
+  position: relative;
+}
+
+
+.overlay:before {
+  content: "";
+  position: fixed;
+  left: -10rem;
+  top: -10rem;
+  width: calc(100% + 20rem);
+  height: calc(100% + 20rem);
+  opacity: 0.8;
+  background-image: url(/public/assets/glitch.jpeg);
+  image-rendering: pixelated;
+  pointer-events: none;
+  animation: GrainOverlay_noise__MsKWx 5s steps(4) infinite;
+}
+/* ********************** */
+
+/* Glitch Effect Keyframes */
+/* ********************** */
+@keyframes GrainOverlay_noise__MsKWx {
+  0% {
+    transform: translate3d(0, 9rem, 0);
+  }
+
+  10% {
+    transform: translate3d(-1rem, -4rem, 0);
+  }
+
+  20% {
+    transform: translate3d(-8rem, 2rem, 0);
+  }
+
+  30% {
+    transform: translate3d(9rem, -9rem, 0);
+  }
+
+  40% {
+    transform: translate3d(-2rem, 7rem, 0);
+  }
+
+  50% {
+    transform: translate3d(-9rem, -4rem, 0);
+  }
+
+  60% {
+    transform: translate3d(2rem, 6rem, 0);
+  }
+
+  70% {
+    transform: translate3d(7rem, -8rem, 0);
+  }
+
+  80% {
+    transform: translate3d(-9rem, 1rem, 0);
+  }
+
+  90% {
+    transform: translate3d(6rem, -5rem, 0);
+  }
+
+  to {
+    transform: translate3d(-7rem, 0, 0);
+  }
+}
+/* ********************** */
