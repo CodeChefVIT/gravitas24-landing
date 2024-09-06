@@ -1,15 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
-import ccLogo from "@/assets/CodeChef-VIT_Logo.svg";
+// import ccLogo from "/CodeChef-VIT_Logo.svg";
 
 const Footer = () => {
   return (
     <div>
-      <div className="h-[40vh] max-h-[40vh] bg-black flex items-center justify-between px-4 sm:px-6 md:px-20 lg:px-40">
-        <div className="flex-shrink-0 ml-2 sm:ml-4 md:ml-10">
+      <div className="h-[22vh] md:h-[24vh] lg:h-[40vh] max-h-[40vh] bg-black flex items-center justify-around">
+        <div className="flex-shrink-1 ">
           <Image
-            className="Codechef_Logo max-w-full"
-            src={ccLogo}
+            className="lg:mr-[40px] w-[130px] sm:w-[150px] md:w-[180px] lg:w-[200px] Codechef_Logo max-w-full"
+            src="/CodeChef-VIT_Logo.svg"
             alt="Codechef_Logo"
             width={60}
             height={60}
@@ -17,7 +17,7 @@ const Footer = () => {
           />
         </div>
 
-        <div className="ml-4 sm:ml-6 md:ml-20 grid grid-cols-2 gap-4 sm:gap-6 md:gap-10">
+        <div className=" grid grid-cols-2 gap-4 sm:gap-6 md:gap-10 ">
           {["WEBSITE", "EVENTS", "SP", "HOME"].map((item) => (
             <div key={item} className="relative group">
               <div className="absolute inset-0 bg-black border-4 border-[#D9D9D9] transform transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2"></div>
@@ -29,17 +29,17 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="h-[15vh] bg-black flex items-center justify-between px-4 sm:px-6 md:px-20 text-white">
-        <div className="flex items-center ml-2 sm:ml-4 md:ml-10">
-          <span className="px-2 sm:px-4 md:px-8 text-sm sm:text-lg md:text-3xl">
-            Powered By :
+      <div className="h-[12vh] lg:h-[15vh] bg-black flex flex-col xl:flex-row items-center justify-around text-white">
+        <div className="md:ml-[-40px] flex items-center ml-2 sm:ml-4 md:ml-10">
+          <span className="px-2 sm:px-2 md:px-4 text-sm sm:text-lg md:text-3xl">
+            Co-hosted by :
           </span>
           <span className="font-bold text-lg sm:text-xl md:text-2xl">
             musclemind
           </span>
         </div>
 
-        <div className="flex space-x-3 sm:space-x-6 md:space-x-11 mr-2 sm:mr-4 md:mr-10">
+        <div className="logo_div flex space-x-3 sm:space-x-6 md:space-x-11 mr-2 sm:mr-4 md:mr-10">
           {["Facebook", "Twitter", "Youtube", "insta", "Linkedin"].map(
             (platform) => (
               <Link key={platform} href="/">

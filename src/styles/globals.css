@@ -100,8 +100,15 @@
   height: 67px;
   font-style: normal;
 }
-.Codechef_Logo{
-  width: 200px;
+@media (min-width: 250px) {
+  .logo_div img{
+  height: 27px;
+}
+}
+@media (min-width: 640px) {
+  .logo_div img{
+  height: 45px;
+}
 }
 .footer-logo{
   height: 50px;
