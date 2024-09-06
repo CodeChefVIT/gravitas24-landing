@@ -43,15 +43,15 @@ export function ThreeDCardDemo() {
                     className="text-black leading-relaxed text-lg max-w-sm mt-3 mukta-malar-regular text-center md:text-right"
                   >
                     <p className="shadow-text"> 
-                      We introduce the 9th iteration of ‘Cook-Off', the longest
-                      running Competitive Coding event in graVITas. One of the
-                      major weapons in any programmer’s arsenal is coding, and
-                      what better way to test your mettle, than to participate in
-                      the largest Competitive Coding contest in VIT’s tech-fest?
+                    Cook-Off returns for its 9th edition at graVITas, where logic shines in Competitive Coding. 
+                    Beyond algorithms, true skill lies in applying pure logic. 
+                    Cook-Off challenges you to unleash creativity, test your limits, 
+                    and face fellow coders. Enter the Colosseum of Creativity—where each 
+                    line of code paves the way to triumph and legacy.
                     </p>
                   </CardItem>
                   
-                  <div className="relative inline-block group mt-10 mb-5 md:mx-0 mx-[132px]">
+                  <div className="relative inline-block group mt-8 mb-5 md:mx-0 mx-[132px]">
                     <div className="absolute inset-0 bg-[#D9D9D9] border-4 border-black transform transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2"></div>
                     <CardItem
                       translateZ={20}
@@ -62,18 +62,18 @@ export function ThreeDCardDemo() {
                     </CardItem>
                   </div>
                 </div>
-                
+                <CardItem translateZ={20} >
                 <div className="border-[#202020] md:border-l-2 md:pl-2">
                   <div className="border-[#202020] border-8 p-0.5">
                     <CardItem
-                      rotateX={-10}
-                      rotateY={-15}
+                      rotateX={-3}
+                      rotateY={-3}
                       rotateZ={2}
                       translateZ="100"
-                      className="flex-shrink-0"
+                      className=" w-full "
                     >
                       <Image
-                        src="/IMG_6012 copy 2.png"
+                        src="/Cookoff_card_img.jpg"
                         height="1024"
                         width="1024"
                         className="h-auto w-[300px] sm:w-[350px] md:w-[400px] object-cover shadow-lg"
@@ -82,6 +82,7 @@ export function ThreeDCardDemo() {
                     </CardItem>
                   </div>
                 </div>
+                </CardItem>
               </div>
             </CardItem>
           </div>
