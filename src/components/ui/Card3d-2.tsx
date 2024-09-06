@@ -25,14 +25,14 @@ export function ThreeDCardDemo2() {
               <div className="border-[#202020] md:border-r-2 md:pr-2 ">
                 <div className="border-[#202020] border-8 p-0.5">
                   <CardItem
-                    rotateX={10}
-                    rotateY={15}
+                    rotateX={3}
+                    rotateY={3}
                     rotateZ={-2}
                     translateZ="100"
                     className="flex-shrink-0"
                   >
                     <Image
-                      src="/IMG20230603001727 2.png"
+                      src="/Clueminati_card_image.jpg"
                       height="1024"
                       width="1024"
                       className="h-auto w-[300px] sm:w-[350px] md:w-[400px] object-cover shadow-lg "
@@ -43,7 +43,7 @@ export function ThreeDCardDemo2() {
               </div>
              
               <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
-                <div className="flex items-center justify-center md:justify-start mb-2 md:mt-3">
+                <div className="flex items-center justify-center md:justify-start mb-0 md:mt-3">
                   <div className="w-16 h-20 flex items-center justify-center mr-2">
                     <img src="/Clueminatilogo.png" alt="C Logo" className="h-full object-contain" />
                   </div>
@@ -58,14 +58,10 @@ export function ThreeDCardDemo2() {
                   className="text-black leading-relaxed text-lg max-w-sm  uber-move text-center md:text-left shadow-text"
                 >
                   <p>
-                    Some copy detailing why it would be great to join this 
-                    event for freshers. Some more content about the importance 
-                    of joining this event. Some more content detailing why this
-                    event would be great. Then some hook detailing how cool this
-                    event is.
+                  New ver-A treasure hunt event where teams will have to collect points across campus and solve simple questions to climb the ladder, and prove themselves as master problem solvers .All the while searching for the secret stories happening behind the scenes, amidst the forces that conspire to bring this event to fruition .
                   </p>
                 </CardItem>
-                <div className="relative inline-block group mt-10 mb-5 md:mx-0 mx-[132px]">
+                <div className="relative inline-block group mt-5 mb-5 md:mb-0 md:mx-0 mx-[132px]">
                   <div className="absolute inset-0 bg-[#D9D9D9] border-4 border-black transform transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2"></div>
                   <CardItem
                     translateZ={20}
