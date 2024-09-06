@@ -11,6 +11,8 @@ export default function Home() {
   return (
     <main>
 
+
+      
       <Navbar/>
       <div className="w-full h-screen absolute -top-0">
       <Stuff ></Stuff>
