@@ -56,7 +56,7 @@ export function ThreeDCardDemo() {
                     <CardItem
                       translateZ={20}
                       as="button"
-                      className="relative bg-[#202020] text-white border-black border-2 font-bold py-1 md:px-6 px-2 cursor-pointer md:text-xl text-sm anton-regular hover:bg-[#D9D9D9] hover:text-black hover:border-black hover:border-2"
+                      className="relative bg-[#202020] text-white border-black border-2 font-bold py-1 md:px-6 px-2 cursor-pointer md:text-xl text-sm anton-regular hover:bg-[#D9D9D9] hover:text-black hover:border-black hover:border-2 whitespace-nowrap"
                     >
                       Get <span style={{ textDecoration: 'line-through', textDecorationColor: 'black' }}>Cooking</span>
                     </CardItem>

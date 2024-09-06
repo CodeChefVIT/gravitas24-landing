@@ -13,7 +13,7 @@ export function ThreeDCardDemo2() {
             src="/noisy-background.jpg"
             layout="fill"
             objectFit="cover"
-            className="opacity-50 rounded-3xl" 
+            className="opacity-45 rounded-3xl" 
             alt="Overlay"
           />
         </div>
@@ -70,7 +70,7 @@ export function ThreeDCardDemo2() {
                   <CardItem
                     translateZ={20}
                     as="button"
-                    className="relative Altera-6 bg-[#202020] text-white border-black border-2 font-bold py-1 px-8 cursor-pointer md:text-2xl text-sm hover:bg-[#D9D9D9] hover:text-black hover:border-black hover:border-2"
+                    className="relative Altera-6 bg-[#202020] text-white border-black border-2 font-bold py-1 px-4 cursor-pointer md:text-2xl text-sm hover:bg-[#D9D9D9] hover:text-black hover:border-black hover:border-2 whitespace-nowrap"
                   >
                     Join Now
                   </CardItem>
