@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+//use LinkedIn 
 
 const Footer = () => {
   return (
@@ -39,7 +40,7 @@ const Footer = () => {
         </div>
 
         <div className="logo_div flex space-x-3 sm:space-x-6 md:space-x-11 mr-2 sm:mr-4 md:mr-10">
-          {["Facebook", "Twitter", "Youtube", "insta", "Linkedin"].map(
+          {["Facebook", "Twitter", "Youtube", "insta", "LinkedIn"].map(
             (platform) => (
               <Link key={platform} href="/">
                 <Image
