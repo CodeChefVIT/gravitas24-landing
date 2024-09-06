@@ -19,7 +19,7 @@ export function ThreeDCardDemo2() {
         </div>
 
         <div className="border-2 border-[#202020] rounded-2xl md:p-2 relative z-10">
-          <CardItem translateZ={20}>
+          <CardItem >
             <div className="flex flex-col items-center md:items-start gap-8 mt-2 md:mt-auto space-x-0.5 md:flex-row md:space-x-2">
               
               <div className="border-[#202020] md:border-r-2 md:pr-2 ">
