@@ -189,7 +189,7 @@
 }
 
 
-.overlay:before {
+/* .overlay:before {
   content: "";
   position: fixed;
   left: -10rem;
@@ -201,7 +201,7 @@
   image-rendering: pixelated;
   pointer-events: none;
   animation: GrainOverlay_noise__MsKWx 5s steps(4) infinite;
-}
+} */
 
 @font-face {
   font-family: "Anton Regular";

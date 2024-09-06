@@ -7,9 +7,11 @@ const Navbar = () => {
       <div className="h-24 flex flex-col sm:flex-row items-center justify-between px-4 sm:px-8 mx-10">
         
         <div className="flex items-center mb-4 mt-2 sm:mb-0">
-          <img
+          <Image
             src="Cookoff_Vector.svg"
             alt="Left Logo"
+            height={100}
+            width={100}
             className="h-12 w-auto sm:h-16"
           />
         </div>
@@ -29,10 +31,12 @@ const Navbar = () => {
 
         
         <div className="flex items-center mt-2">
-          <img
+          <Image
             src="Musclemind_Vector.svg"
             alt="Right Logo"
             className="h-12 w-auto sm:h-16"
+            height={100}
+            width={100}
           />
         </div>
       </div>

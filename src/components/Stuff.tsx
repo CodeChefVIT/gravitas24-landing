@@ -175,7 +175,7 @@ const Stuff: React.FC = () => {
       <Float speed={1.2} rotationIntensity={0.7} floatIntensity={1.5} floatingRange={[-0.2, 0.25]}>
         <primitive
           object={model.scene}
-          scale={0.87}
+          scale={1}
           position-y={-1.6}
           rotation-y={Math.PI * 1.47}
           rotation-z={Math.PI * 2}
