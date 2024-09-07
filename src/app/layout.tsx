@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <link rel="icon" type="image/x-icon" href="/favicon.ico"></link>
       <meta property="og:image:type" content="image/png" />
-        <meta property="og:image" content="" />
+        <meta property="og:image" content="https://imgur.com/cdbvOBA" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Codechef-VIT | Gravitas'24" />
