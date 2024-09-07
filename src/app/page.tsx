@@ -6,6 +6,7 @@ import MarqueeComponent from "../components/MarqueeComponent";
 import Stuff from "@/components/Stuff";
 import EventPage from "@/components/sections/Events/eventpage";
 import Loader from "@/components/ui/Loader";
+import Head from "next/head";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -23,14 +24,16 @@ export default function Home() {
   }
 
   return (
-    <main>
-      <Navbar />
-      <div className="w-full h-[80vh] md:h-screen absolute -right-2 md:-right-0 top-32 md:-top-0 2xl:-top-12">
-        <Stuff />
-      </div>
-      <EventPage />
-      <MarqueeComponent />
-      <Footer />
-    </main>
+    <>
+      <main>
+        <Navbar />
+        <div className="w-full h-[80vh] md:h-screen absolute -right-2 md:-right-0 top-32 md:-top-0 2xl:-top-12">
+          <Stuff />
+        </div>
+        <EventPage />
+        <MarqueeComponent />
+        <Footer />
+      </main>
+    </>
   );
 }
