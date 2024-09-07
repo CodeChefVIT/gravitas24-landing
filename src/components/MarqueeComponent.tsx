@@ -17,7 +17,7 @@ const MarqueeComponent: React.FC = () => {
       <Marquee
         speed={80}
         gradient={false}
-        className="bg-gray-300 border border-gray-300 p-4 md:p-14"
+        className="bg-gray-300 border border-gray-300 p-4 md:p-10"
       >
         <div className="flex flex-col items-center w-full">
           <div
@@ -28,9 +28,10 @@ const MarqueeComponent: React.FC = () => {
               fontWeight: 50,
             }}
           >
-            CLUEMINATI AND COOKOFF DO REGISTER CLUEMINATI AND COOKOFF DO
-            REGISTER. CLUEMINATI AND COOKOFF DO REGISTER. CLUEMINATI AND COOKOFF
-            DO REGISTER. CLUEMINATI AND COOKOFF DO REGISTER.
+            REGISTER FOR COOKOFF & CLUEMINATI. REGISTER FOR COOKOFF &
+            CLUEMINATI. REGISTER FOR COOKOFF & CLUEMINATI. REGISTER FOR COOKOFF
+            & CLUEMINATI. REGISTER FOR COOKOFF & CLUEMINATI. REGISTER FOR
+            COOKOFF & CLUEMINATI.
           </div>
         </div>
       </Marquee>

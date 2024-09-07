@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 //use LinkedIn
 
 const Footer = () => {
@@ -38,12 +38,14 @@ const Footer = () => {
 
       <div className="h-[12vh] lg:h-[15vh] bg-black flex flex-col xl:flex-row items-center justify-around text-white">
         <div className="md:ml-[-30px] 2xl:ml-[-60px] flex items-center ml-2 sm:ml-4">
-          <span className="px-2 sm:px-2 md:px-4 text-sm sm:text-lg md:text-3xl">
+          <span className="px-2 sm:px-2 md:px-4 text-sm sm:text-lg md:text-3xl font-mono tracking-tight">
             Co-hosted by :
           </span>
-          <span className="font-bold text-lg sm:text-xl md:text-2xl">
-            musclemind
-          </span>
+          <Link href="https://www.instagram.com/musclemindofficial/">
+            <span className="font-bold text-lg sm:text-lg md:text-3xl font-mono">
+              Musclemind
+            </span>
+          </Link>
         </div>
 
         <div className="logo_div flex space-x-3 sm:space-x-6 md:space-x-11">
@@ -51,7 +53,7 @@ const Footer = () => {
             (platform) => (
               <Link key={platform} href="/">
                 <Image
-                  className="footer-logo max-w-full"
+                  className="footer-logo max-w-full hover:border-2 hover:border-white hover:rounded-full"
                   src={`${platform}.svg`}
                   alt={`${platform} Logo`}
                   width={24}
