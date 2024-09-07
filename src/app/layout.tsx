@@ -14,14 +14,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <link rel="icon" type="image/x-icon" href="/favicon.ico"></link>
-      <meta property="og:image:type" content="image/png" />
+      <head>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico"></link>
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:image" content="https://imgur.com/cdbvOBA" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Codechef-VIT | Gravitas'24" />
         <meta property="og:url" content={""} />
         <meta property="og:site_name" content={"Codechef-VIT | Gravitas'24"} />
+      </head>
       <body>
         <main className="relative overflow-hidden">{children}</main>
       </body>
