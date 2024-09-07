@@ -13,11 +13,11 @@ export const metadata: Metadata = {
     title: "CodeChef VIT | Gravitas'24",
     description:
       "Join us for Cookoff 9.0 and Clueminati 2.0 at Gravitas'24. Your one-stop destination for all things tech and coding at VIT!",
-    url: "",
+    url: "https://gravitas24-landing-theta.vercel.app/",
     type: "website",
     images: [
       {
-        url: "",
+        url: "https://imgur.com/cdbvOBA",
         width: 1200,
         height: 630,
         alt: "CodeChef VIT - Gravitas'24 Event Banner",
@@ -34,6 +34,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <title>Codechef-VIT | Gravitas'24</title>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico"></link>
+        <meta name="description" content="The one-stop destination for all the tech enthusiasts out there. Codechef VIT presents Cookoff 9.0 and Clueminati 2.0 co-hosted by musclemind." />
+        <meta property="og:title" content="Join us for Cookoff 9.0 and Clueminati 2.0 at Gravitas'24. Your one-stop destination for all things tech and coding at VIT!" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image" content="https://imgur.com/cdbvOBA" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Codechef-VIT | Gravitas'24" />
+        <meta property="og:url" content={"https://gravitas24-landing-theta.vercel.app/"} />
+        <meta property="og:site_name" content={"Codechef-VIT | Gravitas'24"} />
+      </head>
       <body>
         <main className="relative overflow-hidden">{children}</main>
       </body>
