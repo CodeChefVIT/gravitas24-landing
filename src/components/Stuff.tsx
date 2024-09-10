@@ -80,13 +80,13 @@ function CameraControls() {
     window.addEventListener('touchstart', handleTouchStart as EventListener);
     window.addEventListener('touchmove', handleTouchMove as EventListener);
     window.addEventListener('touchend', handleTouchEnd as EventListener);
-    controls?.addEventListener('end', handleEnd);
+    (controls as any)?.addEventListener('end', handleEnd);
 
     return () => {
       window.removeEventListener('touchstart', handleTouchStart as EventListener);
       window.removeEventListener('touchmove', handleTouchMove as EventListener);
       window.removeEventListener('touchend', handleTouchEnd as EventListener);
-      controls?.removeEventListener('end', handleEnd);
+      (controls as any)?.removeEventListener('end', handleEnd);
     };
   }, [camera, initialPosition, initialTarget]);
 
