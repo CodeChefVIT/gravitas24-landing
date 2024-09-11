@@ -11,7 +11,7 @@ import { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 
 function CameraControls() {
   const { camera } = useThree();
-  const controlsRef = useRef<OrbitControlsImpl>(null);
+  const controlsRef = useRef<OrbitControlsImpl | null>(null);
   const initialPosition: [number, number, number] = [2, 2, 5];
   const initialTarget: [number, number, number] = [0, 0, 0];
 
@@ -22,6 +22,9 @@ function CameraControls() {
 
   useEffect(() => {
     const controls = controlsRef.current;
+
+    // Check if controls are defined before adding event listeners
+    if (!controls) return;
 
     const handleEnd = () => {
       if (!controls) return;
@@ -55,41 +58,16 @@ function CameraControls() {
       controls.enabled = false;
     };
 
-    const handleTouchStart = (event: TouchEvent) => {
-      if (event.touches.length === 2) {
-        if (controls) controls.enabled = true;
-      } else if (event.touches.length === 1) {
-        if (controls) controls.enabled = false;
-      }
-    };
+    // Safely add event listener to the controls
+    (controls.addEventListener as any)('end', handleEnd);
 
-    const handleTouchMove = (event: TouchEvent) => {
-      if (event.touches.length === 2) {
-        if (controls) controls.enabled = true;
-      } else {
-        if (controls) controls.enabled = false;
-      }
-    };
-
-    const handleTouchEnd = (event: TouchEvent) => {
-      if (event.touches.length === 0 && controls) {
-        controls.enabled = true;
-      }
-    };
-
-    window.addEventListener('touchstart', handleTouchStart as unknown as EventListener);
-    window.addEventListener('touchmove', handleTouchMove as unknown as EventListener);
-    window.addEventListener('touchend', handleTouchEnd as unknown as EventListener);
-
-    (controls?.addEventListener as any)('end', handleEnd);
-
+    // Cleanup listener on component unmount or when controls change
     return () => {
-      window.removeEventListener('touchstart', handleTouchStart as unknown as EventListener);
-      window.removeEventListener('touchmove', handleTouchMove as unknown as EventListener);
-      window.removeEventListener('touchend', handleTouchEnd as unknown as EventListener);
-      (controls?.removeEventListener as any)('end', handleEnd);
+      if (controls) {
+        (controls.removeEventListener as any)('end', handleEnd);
+      }
     };
-  }, [camera, initialPosition, initialTarget]);
+  }, [camera, initialPosition, initialTarget, controlsRef.current]);
 
   return (
     <OrbitControls
