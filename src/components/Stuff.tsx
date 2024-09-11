@@ -11,7 +11,7 @@ import { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 
 function CameraControls() {
   const { camera } = useThree();
-  const controlsRef = useRef<OrbitControlsImpl | null>(null);
+  const controlsRef = useRef<OrbitControlsImpl>(null);
   const initialPosition: [number, number, number] = [2, 2, 5];
   const initialTarget: [number, number, number] = [0, 0, 0];
 
@@ -22,9 +22,6 @@ function CameraControls() {
 
   useEffect(() => {
     const controls = controlsRef.current;
-
-    // Check if controls are defined before adding event listeners
-    if (!controls) return;
 
     const handleEnd = () => {
       if (!controls) return;
@@ -58,16 +55,44 @@ function CameraControls() {
       controls.enabled = false;
     };
 
-    // Safely add event listener to the controls
-    (controls.addEventListener as any)('end', handleEnd);
-
-    // Cleanup listener on component unmount or when controls change
-    return () => {
-      if (controls) {
-        (controls.removeEventListener as any)('end', handleEnd);
+    const handleTouchStart = (event: TouchEvent) => {
+      event.preventDefault(); 
+      if (event.touches.length === 2) {
+        if (controls) controls.enabled = true;
+      } else if (event.touches.length === 1) {
+        if (controls) controls.enabled = false;
       }
     };
-  }, [camera, initialPosition, initialTarget, controlsRef.current]);
+
+    const handleTouchMove = (event: TouchEvent) => {
+      event.preventDefault(); 
+      if (event.touches.length === 2) {
+        if (controls) controls.enabled = true;
+      } else {
+        if (controls) controls.enabled = false;
+      }
+    };
+
+    const handleTouchEnd = (event: TouchEvent) => {
+      event.preventDefault(); 
+      if (event.touches.length === 0 && controls) {
+        controls.enabled = true;
+      }
+    };
+
+    window.addEventListener('touchstart', handleTouchStart, { passive: false });
+    window.addEventListener('touchmove', handleTouchMove, { passive: false });
+    window.addEventListener('touchend', handleTouchEnd, { passive: false });
+
+    controls?.addEventListener('end', handleEnd);
+
+    return () => {
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
+      controls?.removeEventListener('end', handleEnd);
+    };
+  }, [camera, initialPosition, initialTarget]);
 
   return (
     <OrbitControls
@@ -92,6 +117,7 @@ const Stuff: React.FC = () => {
   const model = useLoader(GLTFLoader, '/models/Computer.glb');
 
   const handleTouchStart = (e: TouchEvent) => {
+    e.preventDefault(); 
     if (e.touches.length === 1) {
       setStartY(e.touches[0].clientY);
       setIsSwiping(true);
@@ -100,6 +126,7 @@ const Stuff: React.FC = () => {
   };
 
   const handleTouchMove = (e: TouchEvent) => {
+    e.preventDefault(); 
     if (isSwiping) {
       const deltaY = startY - e.touches[0].clientY;
       const scrollSpeedFactor = 2;
@@ -139,20 +166,20 @@ const Stuff: React.FC = () => {
   useEffect(() => {
     const options = { passive: false };
 
-    window.addEventListener('touchstart', handleTouchStart as unknown as EventListener, options);
-    window.addEventListener('touchmove', handleTouchMove as unknown as EventListener, options);
-    window.addEventListener('touchend', handleTouchEnd as unknown as EventListener);
+    window.addEventListener('touchstart', handleTouchStart, options);
+    window.addEventListener('touchmove', handleTouchMove, options);
+    window.addEventListener('touchend', handleTouchEnd, options);
 
     return () => {
-      window.removeEventListener('touchstart', handleTouchStart as unknown as EventListener);
-      window.removeEventListener('touchmove', handleTouchMove as unknown as EventListener);
-      window.removeEventListener('touchend', handleTouchEnd as unknown as EventListener);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
     };
   }, []);
 
   return (
     <Canvas
-      style={{ touchAction: 'manipulation' }}
+      style={{ touchAction: 'none' }}
       onTouchStart={handleTouchStart as any}
       onTouchMove={handleTouchMove as any}
       onTouchEnd={handleTouchEnd as any}
