@@ -96,7 +96,7 @@ const Stuff: React.FC = () => {
 
   if (typeof window === 'undefined') return null;
 
-  const model = useLoader(GLTFLoader, '/models/Computer.glb');
+  const model = useLoader(GLTFLoader, '/models/LowPolyComputer.glb');
 
   const handleTouchStart = (e: TouchEvent) => {
     if (!canvasRef.current?.contains(e.target as Node)) return;
