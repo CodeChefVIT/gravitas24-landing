@@ -65,13 +65,11 @@ function CameraControls() {
 
     window.addEventListener('touchstart', handleTouchStart, { passive: false });
 
-    (controls as unknown as { addEventListener: (type: string, listener: EventListener) => void })
-      .addEventListener('end', handleEnd as EventListener);
+    controls?.addEventListener('end', handleEnd);
 
     return () => {
       window.removeEventListener('touchstart', handleTouchStart);
-      (controls as unknown as { removeEventListener: (type: string, listener: EventListener) => void })
-        .removeEventListener('end', handleEnd as EventListener);
+      controls?.removeEventListener('end', handleEnd);
     };
   }, [camera, initialPosition, initialTarget]);
 
@@ -93,8 +91,6 @@ const Stuff: React.FC = () => {
   const lastDeltaYRef = useRef<number>(0);
   const momentumRef = useRef<number>(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  if (typeof window === 'undefined') return null;
 
   const model = useLoader(GLTFLoader, '/models/LowPolyComputer.glb');
 
@@ -120,8 +116,7 @@ const Stuff: React.FC = () => {
     }
   };
 
-  const handleTouchEnd = (e: TouchEvent) => {
-    if (!canvasRef.current?.contains(e.target as Node)) return;
+  const handleTouchEnd = () => {
     setIsSwiping(false);
     startMomentumScroll(lastDeltaYRef.current);
   };
@@ -165,7 +160,12 @@ const Stuff: React.FC = () => {
   return (
     <Canvas
       ref={canvasRef}
-      style={{ touchAction: 'none', WebkitUserSelect: 'none', WebkitTapHighlightColor: 'transparent' }}
+      style={{
+        touchAction: 'none',
+        WebkitUserSelect: 'none',
+        WebkitTapHighlightColor: 'transparent',
+        willChange: 'transform',
+      }}
       onTouchStart={handleTouchStart as any}
       onTouchMove={handleTouchMove as any}
       onTouchEnd={handleTouchEnd as any}
