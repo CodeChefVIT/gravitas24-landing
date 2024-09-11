@@ -99,7 +99,7 @@ const Stuff: React.FC = () => {
   const model = useLoader(GLTFLoader, '/models/Computer.glb');
 
   const handleTouchStart = (e: TouchEvent) => {
-    if (!canvasRef.current?.contains(e.target as Node)) return; // Only handle if the touch is on the canvas
+    if (!canvasRef.current?.contains(e.target as Node)) return;
     e.preventDefault();
     if (e.touches.length === 1) {
       setStartY(e.touches[0].clientY);
@@ -109,7 +109,7 @@ const Stuff: React.FC = () => {
   };
 
   const handleTouchMove = (e: TouchEvent) => {
-    if (!canvasRef.current?.contains(e.target as Node)) return; // Only handle if the touch is on the canvas
+    if (!canvasRef.current?.contains(e.target as Node)) return;
     e.preventDefault();
     if (isSwiping) {
       const deltaY = startY - e.touches[0].clientY;
@@ -121,7 +121,7 @@ const Stuff: React.FC = () => {
   };
 
   const handleTouchEnd = (e: TouchEvent) => {
-    if (!canvasRef.current?.contains(e.target as Node)) return; // Only handle if the touch is on the canvas
+    if (!canvasRef.current?.contains(e.target as Node)) return;
     setIsSwiping(false);
     startMomentumScroll(lastDeltaYRef.current);
   };
@@ -165,7 +165,7 @@ const Stuff: React.FC = () => {
   return (
     <Canvas
       ref={canvasRef}
-      style={{ touchAction: 'none' }}
+      style={{ touchAction: 'none', WebkitUserSelect: 'none', WebkitTapHighlightColor: 'transparent' }}
       onTouchStart={handleTouchStart as any}
       onTouchMove={handleTouchMove as any}
       onTouchEnd={handleTouchEnd as any}
