@@ -11,7 +11,7 @@ import { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 
 function CameraControls() {
   const { camera } = useThree();
-  const controlsRef = useRef<OrbitControlsImpl>(null);
+  const controlsRef = useRef<OrbitControlsImpl | null>(null);
   const initialPosition: [number, number, number] = [2, 2, 5];
   const initialTarget: [number, number, number] = [0, 0, 0];
 
@@ -56,7 +56,7 @@ function CameraControls() {
     };
 
     const handleTouchStart = (event: TouchEvent) => {
-      event.preventDefault(); 
+      event.preventDefault();
       if (event.touches.length === 2) {
         if (controls) controls.enabled = true;
       } else if (event.touches.length === 1) {
@@ -65,7 +65,7 @@ function CameraControls() {
     };
 
     const handleTouchMove = (event: TouchEvent) => {
-      event.preventDefault(); 
+      event.preventDefault();
       if (event.touches.length === 2) {
         if (controls) controls.enabled = true;
       } else {
@@ -74,7 +74,7 @@ function CameraControls() {
     };
 
     const handleTouchEnd = (event: TouchEvent) => {
-      event.preventDefault(); 
+      event.preventDefault();
       if (event.touches.length === 0 && controls) {
         controls.enabled = true;
       }
@@ -84,13 +84,15 @@ function CameraControls() {
     window.addEventListener('touchmove', handleTouchMove, { passive: false });
     window.addEventListener('touchend', handleTouchEnd, { passive: false });
 
-    controls?.addEventListener('end', handleEnd);
+    (controls as unknown as { addEventListener: (type: string, listener: EventListener) => void })
+      .addEventListener('end', handleEnd as EventListener);
 
     return () => {
       window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('touchend', handleTouchEnd);
-      controls?.removeEventListener('end', handleEnd);
+      (controls as unknown as { removeEventListener: (type: string, listener: EventListener) => void })
+        .removeEventListener('end', handleEnd as EventListener);
     };
   }, [camera, initialPosition, initialTarget]);
 
@@ -117,7 +119,7 @@ const Stuff: React.FC = () => {
   const model = useLoader(GLTFLoader, '/models/Computer.glb');
 
   const handleTouchStart = (e: TouchEvent) => {
-    e.preventDefault(); 
+    e.preventDefault();
     if (e.touches.length === 1) {
       setStartY(e.touches[0].clientY);
       setIsSwiping(true);
@@ -126,7 +128,7 @@ const Stuff: React.FC = () => {
   };
 
   const handleTouchMove = (e: TouchEvent) => {
-    e.preventDefault(); 
+    e.preventDefault();
     if (isSwiping) {
       const deltaY = startY - e.touches[0].clientY;
       const scrollSpeedFactor = 2;
