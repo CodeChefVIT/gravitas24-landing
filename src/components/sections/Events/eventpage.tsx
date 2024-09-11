@@ -10,21 +10,15 @@ const EventPage: React.FC = () => {
 
       <p className="max-w-7xl px-4 mx-auto text-[4vw] sm:text-xl sm:mx-14 mb-[10vw] sm:mb-[5vw] leading-relaxed ibm-plex-mono-regular">
         Join us at graVITas for two of the most exhilarating events of the
-        year!&nbsp;
-        <br />
-        <br /> <strong className="text-[#B7AB98]">CLUEMINATI 2.0 </strong>will
-        push your limits with intricate puzzles and a high-stakes treasure hunt,
-        while
-        <strong className="text-[#B7AB98]"> COOK-OFF 9.0 </strong> celebrates
-        creativity and problem-solving in competitive coding. <br />
-        <br />
-        Whether you're a puzzle enthusiast or a coding whiz, these events offer
-        the ultimate platform to challenge your skills, compete with the best,
-        and make your mark.
-        <br />
-        <br />
-        Don't miss out on the adventure! <br />
-        Be a part of something extraordinary!
+        year!&nbsp; <strong className="text-[#B7AB98]">CLUEMINATI 2.0 </strong>
+        will push your limits with intricate puzzles and a high-stakes treasure
+        hunt, while the 9th edition of
+        <strong className="text-[#B7AB98]"> COOK-OFF </strong> celebrates
+        creativity and problem-solving in competitive coding. Whether you're a
+        puzzle enthusiast or a coding whiz, these events offer the ultimate
+        platform to challenge your skills, compete with the best, and make your
+        mark. Don't miss out on the adventure! Be a part of something
+        extraordinary!
       </p>
 
       <ThreeDCardDemo />
