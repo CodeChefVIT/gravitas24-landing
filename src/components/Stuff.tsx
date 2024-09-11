@@ -65,13 +65,15 @@ function CameraControls() {
 
     window.addEventListener('touchstart', handleTouchStart, { passive: false });
 
-    (controls as unknown as { addEventListener: (type: string, listener: EventListener) => void })
-      .addEventListener('end', handleEnd as EventListener);
+    if (controls) {
+      controls.addEventListener('end', handleEnd);
+    }
 
     return () => {
       window.removeEventListener('touchstart', handleTouchStart);
-      (controls as unknown as { removeEventListener: (type: string, listener: EventListener) => void })
-        .removeEventListener('end', handleEnd as EventListener);
+      if (controls) {
+        controls.removeEventListener('end', handleEnd);
+      }
     };
   }, [camera, initialPosition, initialTarget]);
 
