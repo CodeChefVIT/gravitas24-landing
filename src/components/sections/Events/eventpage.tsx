@@ -1,5 +1,6 @@
 import { ThreeDCardDemo } from "@/components/ui/Card3d";
 import { ThreeDCardDemo2 } from "@/components/ui/Card3d-2";
+import { Imagecard } from "@/components/ui/Image3dcard";
 import React from "react";
 const EventPage: React.FC = () => {
   return (
@@ -22,7 +23,9 @@ const EventPage: React.FC = () => {
       </p>
 
       <ThreeDCardDemo />
+      <Imagecard mainimage="IMG_6012.png" />
       <ThreeDCardDemo2 />
+      <Imagecard mainimage="IMG_6012.png" />
     </div>
   );
 };
