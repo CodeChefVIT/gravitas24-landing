@@ -56,7 +56,6 @@ function CameraControls() {
     };
 
     const handleTouchStart = (event: TouchEvent) => {
-      event.preventDefault();
       if (event.touches.length === 2) {
         if (controls) controls.enabled = true;
       } else if (event.touches.length === 1) {
@@ -64,33 +63,13 @@ function CameraControls() {
       }
     };
 
-    const handleTouchMove = (event: TouchEvent) => {
-      event.preventDefault();
-      if (event.touches.length === 2) {
-        if (controls) controls.enabled = true;
-      } else {
-        if (controls) controls.enabled = false;
-      }
-    };
-
-    const handleTouchEnd = (event: TouchEvent) => {
-      event.preventDefault();
-      if (event.touches.length === 0 && controls) {
-        controls.enabled = true;
-      }
-    };
-
     window.addEventListener('touchstart', handleTouchStart, { passive: false });
-    window.addEventListener('touchmove', handleTouchMove, { passive: false });
-    window.addEventListener('touchend', handleTouchEnd, { passive: false });
 
     (controls as unknown as { addEventListener: (type: string, listener: EventListener) => void })
       .addEventListener('end', handleEnd as EventListener);
 
     return () => {
       window.removeEventListener('touchstart', handleTouchStart);
-      window.removeEventListener('touchmove', handleTouchMove);
-      window.removeEventListener('touchend', handleTouchEnd);
       (controls as unknown as { removeEventListener: (type: string, listener: EventListener) => void })
         .removeEventListener('end', handleEnd as EventListener);
     };
@@ -113,12 +92,14 @@ const Stuff: React.FC = () => {
   const [isSwiping, setIsSwiping] = useState<boolean>(false);
   const lastDeltaYRef = useRef<number>(0);
   const momentumRef = useRef<number>(0);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   if (typeof window === 'undefined') return null;
 
   const model = useLoader(GLTFLoader, '/models/Computer.glb');
 
   const handleTouchStart = (e: TouchEvent) => {
+    if (!canvasRef.current?.contains(e.target as Node)) return; // Only handle if the touch is on the canvas
     e.preventDefault();
     if (e.touches.length === 1) {
       setStartY(e.touches[0].clientY);
@@ -128,6 +109,7 @@ const Stuff: React.FC = () => {
   };
 
   const handleTouchMove = (e: TouchEvent) => {
+    if (!canvasRef.current?.contains(e.target as Node)) return; // Only handle if the touch is on the canvas
     e.preventDefault();
     if (isSwiping) {
       const deltaY = startY - e.touches[0].clientY;
@@ -138,7 +120,8 @@ const Stuff: React.FC = () => {
     }
   };
 
-  const handleTouchEnd = () => {
+  const handleTouchEnd = (e: TouchEvent) => {
+    if (!canvasRef.current?.contains(e.target as Node)) return; // Only handle if the touch is on the canvas
     setIsSwiping(false);
     startMomentumScroll(lastDeltaYRef.current);
   };
@@ -181,6 +164,7 @@ const Stuff: React.FC = () => {
 
   return (
     <Canvas
+      ref={canvasRef}
       style={{ touchAction: 'none' }}
       onTouchStart={handleTouchStart as any}
       onTouchMove={handleTouchMove as any}
