@@ -1,13 +1,37 @@
 'use client';
 
+import React, { useEffect, useRef, useState } from 'react'; 
 import { Canvas, useThree } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { useLoader } from '@react-three/fiber';
-import { useEffect, useRef, useState } from 'react';
 import { Float, OrbitControls, Environment } from '@react-three/drei';
 import gsap from 'gsap';
 import dynamic from 'next/dynamic';
 import { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
+
+
+class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean }> {
+  constructor(props: { children: React.ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(_: Error): { hasError: boolean } {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.error('Uncaught error:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <h1>Something went wrong.</h1>;
+    }
+
+    return this.props.children;
+  }
+}
 
 function CameraControls() {
   const { camera } = useThree();
@@ -55,24 +79,19 @@ function CameraControls() {
       controls.enabled = false;
     };
 
-    const handleTouchStart = (event: TouchEvent) => {
-      if (event.touches.length === 2) {
-        if (controls) controls.enabled = true;
-      } else if (event.touches.length === 1) {
-        if (controls) controls.enabled = false;
-      }
+ 
+    const controlsWithEvents = controls as unknown as {
+      addEventListener: (type: 'end', listener: () => void) => void;
+      removeEventListener: (type: 'end', listener: () => void) => void;
     };
 
-    window.addEventListener('touchstart', handleTouchStart, { passive: false });
-
-    if (controls) {
-      controls.addEventListener('end', handleEnd);
+    if (controlsWithEvents) {
+      controlsWithEvents.addEventListener('end', handleEnd);
     }
 
     return () => {
-      window.removeEventListener('touchstart', handleTouchStart);
-      if (controls) {
-        controls.removeEventListener('end', handleEnd);
+      if (controlsWithEvents) {
+        controlsWithEvents.removeEventListener('end', handleEnd);
       }
     };
   }, [camera, initialPosition, initialTarget]);
@@ -98,7 +117,14 @@ const Stuff: React.FC = () => {
 
   if (typeof window === 'undefined') return null;
 
-  const model = useLoader(GLTFLoader, '/models/Computer.glb');
+  
+  let model;
+  try {
+    model = useLoader(GLTFLoader, '/models/Computer.glb');
+  } catch (error) {
+    console.error('Error loading model:', error);
+    model = null; 
+  }
 
   const handleTouchStart = (e: TouchEvent) => {
     if (!canvasRef.current?.contains(e.target as Node)) return;
@@ -137,6 +163,8 @@ const Stuff: React.FC = () => {
         window.scrollBy(0, velocity);
         velocity *= friction;
         momentumRef.current = requestAnimationFrame(animate);
+      } else {
+        cancelMomentumScroll(); 
       }
     };
 
@@ -176,19 +204,30 @@ const Stuff: React.FC = () => {
       <directionalLight castShadow position={[2, 3, 4]} intensity={3} />
       <ambientLight intensity={0.5} />
       <Environment preset="city" />
-      <Float speed={1.4} rotationIntensity={0.7} floatIntensity={1.5} floatingRange={[-0.15, 0.15]}>
-        <primitive
-          object={model.scene}
-          scale={1}
-          position-y={-1.6}
-          position-x={0.1}
-          rotation-y={Math.PI * 1.47}
-          rotation-z={Math.PI * 2}
-          rotation-x={Math.PI * 2}
-        />
-      </Float>
+      {model ? ( // Render the model only if it's successfully loaded
+        <Float speed={1.4} rotationIntensity={0.7} floatIntensity={1.5} floatingRange={[-0.15, 0.15]}>
+          <primitive
+            object={model.scene}
+            scale={1}
+            position-y={-1.6}
+            position-x={0.1}
+            rotation-y={Math.PI * 1.47}
+            rotation-z={Math.PI * 2}
+            rotation-x={Math.PI * 2}
+          />
+        </Float>
+      ) : (
+        <mesh>
+          <boxGeometry args={[1, 1, 1]} />
+          <meshStandardMaterial color="red" />
+        </mesh>
+      )}
     </Canvas>
   );
 };
 
-export default dynamic(() => Promise.resolve(Stuff), { ssr: false });
+export default dynamic(() => Promise.resolve(() => (
+  <ErrorBoundary>
+    <Stuff />
+  </ErrorBoundary>
+)), { ssr: false });
