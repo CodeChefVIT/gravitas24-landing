@@ -93,7 +93,6 @@ const Stuff: React.FC = () => {
   const lastDeltaYRef = useRef<number>(0);
   const momentumRef = useRef<number>(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const scrollTimeoutRef = useRef<number | null>(null);
 
   if (typeof window === 'undefined') return null;
 
@@ -115,13 +114,7 @@ const Stuff: React.FC = () => {
     if (isSwiping) {
       const deltaY = startY - e.touches[0].clientY;
       const scrollSpeedFactor = 2;
-
-      // Debounce scroll updates
-      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
-      scrollTimeoutRef.current = window.setTimeout(() => {
-        window.scrollBy(0, deltaY * scrollSpeedFactor);
-      }, 16); // Approx. one frame at 60fps
-
+      window.scrollBy(0, deltaY * scrollSpeedFactor);
       setStartY(e.touches[0].clientY);
       lastDeltaYRef.current = deltaY;
     }
