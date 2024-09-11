@@ -142,11 +142,26 @@
   font-weight: 400;
   font-style: normal;
 }
+.audiowide {
+  font-family: "AudioWide-Regular", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.navinedemo {
+  font-family: "Navine Demo", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 
 @font-face {
   font-family: "Mukta Malar";
   src: url("./../../public/MuktaMalar-Regular.ttf");
+}
+@font-face {
+  font-family: "Navine Demo";
+  src: url("./../../public/NavineDemo-SemiCondensed.ttf");
 }
 
 @font-face {
@@ -184,7 +199,7 @@
 }
 
 
-.overlay:before {
+/* .overlay:before {
   content: "";
   position: fixed;
   left: -10rem;
@@ -196,7 +211,7 @@
   image-rendering: pixelated;
   pointer-events: none;
   animation: GrainOverlay_noise__MsKWx 5s steps(4) infinite;
-}
+} */
 
 @font-face {
   font-family: "Anton Regular";

@@ -1,79 +1,43 @@
-import Link from "next/link";
 import Image from "next/image";
-// import mmLogo from "/mmLogo.png";
-// import ccLogo from "/Vector.svg";
 
 const Navbar = () => {
   return (
     <div className="h-screen bg-cover bg-no-repeat bg-center bg-black bg-[url('/magicpattern-grid-pattern.svg')]">
-      {/* <div className="flex justify-between items-center max-w-full relative px-6 py-4">
-        <Link
-          href="/"
-          className=" h-[74px] ml-2 sm:ml-4 md:ml-6 mt-3 pt-0 flex-shrink-0"
-        >
-          <Image src="/Vector.svg" alt="Codechef_Logo" width={74} height={15} />
-        </Link>
+      <div className="h-24 flex flex-col sm:flex-row items-center justify-between px-4 sm:px-8 mx-10">
+        <div className="flex items-center mb-4 mt-2 sm:mb-0">
+          <Image
+            src="Cookoff_Vector.svg"
+            alt="Left Logo"
+            height={100}
+            width={100}
+            className="h-12 w-auto sm:h-16"
+          />
+        </div>
 
-        <ul
-          className="flex gap-4 sm:gap-6 md:gap-8 lg:gap-12 text-white font-semibold"
-          style={{
-            fontFamily: "Anton Regular",
-            fontStyle: "normal",
-            fontWeight: 50,
-          }}
-        >
-          <Link
-            href="/"
-            className="flexCenter mt-5 text-xl sm:text-2xl md:text-3xl"
-          >
-            COOKOFF
-          </Link>
-          <Link
-            href="/"
-            className="flexCenter mt-5 mr-2 sm:mr-4 md:mr-5 text-xl sm:text-2xl md:text-3xl"
-          >
-            CLUEMINATI
-          </Link>
-        </ul>
-      </div> */}
-      <div
-        style={{
-          fontFamily: "AudioWide-Regular",
-          fontStyle: "normal",
-          fontWeight: 100,
-        }}
-        className="md:text-7xl text-5xl audiowide-regular w-screen flex justify-center text-white text-center"
-      >
-        Gravitas'24
-      </div>
-      <div
-        style={{
-          fontFamily: "AudioWide-Regular",
-          fontStyle: "normal",
-          fontWeight: 100,
-        }}
-        className="raleway-dots-regular w-full flex justify-center text-white text-center"
-      >
-        CO-HOSTED BY
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "-25px",
-        }}
-      >
-        <Image src="/mmLogo.png" alt="muscle mind logo" height={80} width={80} />
-      </div>
-      <div
-        style={{
-          fontFamily: "AudioWide-Regular",
-          fontStyle: "normal",
-          fontWeight: 100,
-        }}
-        className="raleway-dots-regular w-full flex justify-center text-white text-center"
-      >
-        Musclemind
+        <div className="text-center mb-4 sm:mb-0">
+          <h1 className="text-white text-3xl sm:text-7xl mt-1 md:mt-20 font-bold audiowide">
+            CodeChef-VIT
+          </h1>
+          <p className="text-white text-lg sm:text-xl my-1 md:my-2 font-light audiowide">
+            Presents
+          </p>
+          <p className="text-white text-xl sm:text-3xl hidden sm:block font-bold audiowide">
+            CookOff 9.0 | Clueminati 2.0
+          </p>
+          <p className="text-white text-xl sm:text-3xl sm:hidden font-bold audiowide">
+            CookOff 9.0 and <br /> Clueminati 2.0
+          </p>
+        </div>
+
+        <div className="flex items-center mt-0 sm:mt-2">
+          <Image
+            src="Musclemind_Vector.svg"
+            alt="Right Logo"
+            className="h-12 w-auto sm:h-16"
+            height={100}
+            width={100}
+          />
+        </div>
       </div>
     </div>
   );

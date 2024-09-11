@@ -1,11 +1,11 @@
-import Link from "next/link";
 import Image from "next/image";
-// import ccLogo from "/CodeChef-VIT_Logo.svg";
+import Link from "next/link";
+//use LinkedIn
 
 const Footer = () => {
   return (
     <div>
-      <div className="h-[22vh] md:h-[24vh] lg:h-[40vh] max-h-[40vh] bg-black flex items-center justify-around">
+      <div className="h-[22vh] md:h-[24vh] lg:h-[40vh] 2xl:h-[30vh] max-h-[40vh] bg-black flex items-center justify-around">
         <div className="flex-shrink-1 ">
           <Image
             className="lg:mr-[40px] w-[130px] sm:w-[150px] md:w-[180px] lg:w-[200px] Codechef_Logo max-w-full"
@@ -17,7 +17,14 @@ const Footer = () => {
           />
         </div>
 
-        <div className=" grid grid-cols-2 gap-4 sm:gap-6 md:gap-10 ">
+        <div
+          className=" grid grid-cols-2 gap-4 sm:gap-6 md:gap-10"
+          style={{
+            fontFamily: "Anton Regular",
+            fontStyle: "normal",
+            fontWeight: 50,
+          }}
+        >
           {["WEBSITE", "EVENTS", "SP", "HOME"].map((item) => (
             <div key={item} className="relative group">
               <div className="absolute inset-0 bg-black border-4 border-[#D9D9D9] transform transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2"></div>
@@ -30,21 +37,23 @@ const Footer = () => {
       </div>
 
       <div className="h-[12vh] lg:h-[15vh] bg-black flex flex-col xl:flex-row items-center justify-around text-white">
-        <div className="md:ml-[-40px] flex items-center ml-2 sm:ml-4 md:ml-10">
-          <span className="px-2 sm:px-2 md:px-4 text-sm sm:text-lg md:text-3xl">
+        <div className="md:ml-[-30px] 2xl:ml-[-60px] flex items-center ml-2 sm:ml-4">
+          <span className="px-2 sm:px-2 md:px-4 text-sm sm:text-lg md:text-3xl font-mono tracking-tight">
             Co-hosted by :
           </span>
-          <span className="font-bold text-lg sm:text-xl md:text-2xl">
-            musclemind
-          </span>
+          <Link href="https://www.instagram.com/musclemindofficial/">
+            <span className="font-bold text-lg sm:text-lg md:text-3xl font-mono">
+              Musclemind
+            </span>
+          </Link>
         </div>
 
-        <div className="logo_div flex space-x-3 sm:space-x-6 md:space-x-11 mr-2 sm:mr-4 md:mr-10">
-          {["Facebook", "Twitter", "Youtube", "insta", "Linkedin"].map(
+        <div className="logo_div flex space-x-3 sm:space-x-6 md:space-x-11">
+          {["Facebook", "Twitter", "Youtube", "insta", "LinkedIn"].map(
             (platform) => (
               <Link key={platform} href="/">
                 <Image
-                  className="footer-logo max-w-full"
+                  className="footer-logo max-w-full hover:border-2 hover:border-white hover:rounded-full"
                   src={`${platform}.svg`}
                   alt={`${platform} Logo`}
                   width={24}
