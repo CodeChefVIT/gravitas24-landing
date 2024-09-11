@@ -1,10 +1,10 @@
 import Image from "next/image";
-
+import Link from "next/link";
 const Navbar = () => {
   return (
     <div className="h-screen bg-cover bg-no-repeat bg-center bg-black bg-[url('/magicpattern-grid-pattern.svg')]">
       <div className="h-24 flex flex-col sm:flex-row items-center justify-between px-4 sm:px-8 mx-10">
-        <div className="flex items-center mb-4 mt-2 sm:mb-0">
+        <Link href="https://www.codechefvit.com" className="flex z-[100] items-center mb-4 mt-2 sm:mb-0" target="_blank" rel="noopener noreferrer">
           <Image
             src="Cookoff_Vector.svg"
             alt="Left Logo"
@@ -12,7 +12,7 @@ const Navbar = () => {
             width={100}
             className="h-12 w-auto sm:h-16"
           />
-        </div>
+        </Link>
 
         <div className="text-center mb-4 sm:mb-0">
           <h1 className="text-white text-3xl sm:text-7xl mt-1 md:mt-20 font-bold audiowide">
@@ -29,7 +29,7 @@ const Navbar = () => {
           </p>
         </div>
 
-        <div className="flex items-center mt-0 sm:mt-2">
+        <Link href="https://musclemind.com/?srsltid=AfmBOopLCJTyvzcH_VZov3Cs97BCeOrmiZ3NORI11Q0KkCXPqSJPWYRQ" className="flex z-[100] items-center mt-0 sm:mt-2" target="_blank" rel="noopener noreferrer">
           <Image
             src="Musclemind_Vector.svg"
             alt="Right Logo"
@@ -37,7 +37,7 @@ const Navbar = () => {
             height={100}
             width={100}
           />
-        </div>
+        </Link>
       </div>
     </div>
   );
