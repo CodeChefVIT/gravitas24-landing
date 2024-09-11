@@ -77,15 +77,15 @@ function CameraControls() {
       }
     };
 
-    window.addEventListener('touchstart', handleTouchStart as EventListener);
-    window.addEventListener('touchmove', handleTouchMove as EventListener);
-    window.addEventListener('touchend', handleTouchEnd as EventListener);
+    window.addEventListener('touchstart', handleTouchStart as unknown as EventListener);
+    window.addEventListener('touchmove', handleTouchMove as unknown as EventListener);
+    window.addEventListener('touchend', handleTouchEnd as unknown as EventListener);
     controls?.addEventListener('end', handleEnd);
 
     return () => {
-      window.removeEventListener('touchstart', handleTouchStart as EventListener);
-      window.removeEventListener('touchmove', handleTouchMove as EventListener);
-      window.removeEventListener('touchend', handleTouchEnd as EventListener);
+      window.removeEventListener('touchstart', handleTouchStart as unknown as EventListener);
+      window.removeEventListener('touchmove', handleTouchMove as unknown as EventListener);
+      window.removeEventListener('touchend', handleTouchEnd as unknown as EventListener);
       controls?.removeEventListener('end', handleEnd);
     };
   }, [camera, initialPosition, initialTarget]);
@@ -112,37 +112,37 @@ const Stuff: React.FC = () => {
 
   const model = useLoader(GLTFLoader, '/models/Computer.glb');
 
-  const handleTouchStart = (e: React.TouchEvent) => {
+  const handleTouchStart = (e: TouchEvent) => {
     if (e.touches.length === 1) {
       setStartY(e.touches[0].clientY);
       setIsSwiping(true);
-      cancelMomentumScroll(); 
+      cancelMomentumScroll();
     }
   };
 
-  const handleTouchMove = (e: React.TouchEvent) => {
+  const handleTouchMove = (e: TouchEvent) => {
     if (isSwiping) {
       const deltaY = startY - e.touches[0].clientY;
-      const scrollSpeedFactor = 2; 
+      const scrollSpeedFactor = 2;
       window.scrollBy(0, deltaY * scrollSpeedFactor);
       setStartY(e.touches[0].clientY);
-      lastDeltaYRef.current = deltaY; 
+      lastDeltaYRef.current = deltaY;
     }
   };
 
   const handleTouchEnd = () => {
     setIsSwiping(false);
-    startMomentumScroll(lastDeltaYRef.current); 
+    startMomentumScroll(lastDeltaYRef.current);
   };
 
   const startMomentumScroll = (initialVelocity: number) => {
-    const friction = 0.95; 
+    const friction = 0.95;
     let velocity = initialVelocity;
 
     const animate = () => {
-      if (Math.abs(velocity) > 0.5) { 
+      if (Math.abs(velocity) > 0.5) {
         window.scrollBy(0, velocity);
-        velocity *= friction; 
+        velocity *= friction;
         momentumRef.current = requestAnimationFrame(animate);
       }
     };
@@ -158,25 +158,36 @@ const Stuff: React.FC = () => {
   };
 
   useEffect(() => {
-    return () => cancelMomentumScroll(); 
+    const options = { passive: false };
+
+    window.addEventListener('touchstart', handleTouchStart as unknown as EventListener, options);
+    window.addEventListener('touchmove', handleTouchMove as unknown as EventListener, options);
+    window.addEventListener('touchend', handleTouchEnd as unknown as EventListener);
+
+    return () => {
+      window.removeEventListener('touchstart', handleTouchStart as unknown as EventListener);
+      window.removeEventListener('touchmove', handleTouchMove as unknown as EventListener);
+      window.removeEventListener('touchend', handleTouchEnd as unknown as EventListener);
+    };
   }, []);
 
   return (
     <Canvas
-      style={{ touchAction: 'none' }}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
+      style={{ touchAction: 'manipulation' }}
+      onTouchStart={handleTouchStart as any}
+      onTouchMove={handleTouchMove as any}
+      onTouchEnd={handleTouchEnd as any}
     >
       <CameraControls />
       <directionalLight castShadow position={[2, 3, 4]} intensity={3} />
       <ambientLight intensity={0.5} />
       <Environment preset="city" />
-      <Float speed={1.2} rotationIntensity={0.7} floatIntensity={1.5} floatingRange={[-0.2, 0.25]}>
+      <Float speed={1.4} rotationIntensity={0.7} floatIntensity={1.5} floatingRange={[-0.15, 0.15]}>
         <primitive
           object={model.scene}
-          scale={0.87}
+          scale={1}
           position-y={-1.6}
+          position-x={0.1}
           rotation-y={Math.PI * 1.47}
           rotation-z={Math.PI * 2}
           rotation-x={Math.PI * 2}

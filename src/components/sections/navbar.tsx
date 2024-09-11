@@ -6,7 +6,7 @@ import Image from "next/image";
 const Navbar = () => {
   return (
     <div className="h-screen bg-cover bg-no-repeat bg-center bg-black bg-[url('/magicpattern-grid-pattern.svg')]">
-      <div className="flex justify-between items-center max-w-full relative px-6 py-4">
+      {/* <div className="flex justify-between items-center max-w-full relative px-6 py-4">
         <Link
           href="/"
           className=" h-[74px] ml-2 sm:ml-4 md:ml-6 mt-3 pt-0 flex-shrink-0"
@@ -35,7 +35,7 @@ const Navbar = () => {
             CLUEMINATI
           </Link>
         </ul>
-      </div>
+      </div> */}
       <div
         style={{
           fontFamily: "AudioWide-Regular",

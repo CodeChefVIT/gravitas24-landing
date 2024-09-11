@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <main>
 
-      <Navbar/>
-      <div className="w-full h-screen absolute top-32">
+      <Navbar></Navbar>
+      <div className="w-full h-screen absolute -top-0 lg:-top-10">
       <Stuff ></Stuff>
       </div>
 
