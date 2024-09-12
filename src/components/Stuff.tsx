@@ -22,11 +22,14 @@ function CameraControls() {
 
   useEffect(() => {
     const controls = controlsRef.current;
-
+    let cameraAnimation: gsap.core.Tween | undefined;
+    let targetAnimation: gsap.core.Tween | undefined;
+  
     const handleEnd = () => {
       if (!controls) return;
-
-      gsap.to(camera.position, {
+  
+      
+      cameraAnimation = gsap.to(camera.position, {
         x: initialPosition[0],
         y: initialPosition[1],
         z: initialPosition[2],
@@ -38,43 +41,46 @@ function CameraControls() {
         },
         onComplete: () => {
           controls.enabled = true;
+        
+          if (cameraAnimation) cameraAnimation.kill();
         },
       });
-
+  
+     
       if (controls.target) {
-        gsap.to(controls.target, {
+        targetAnimation = gsap.to(controls.target, {
           x: initialTarget[0],
           y: initialTarget[1],
           z: initialTarget[2],
           duration: 1.2,
           ease: 'power3.out',
           onUpdate: () => controls.update(),
+          onComplete: () => {
+           
+            if (targetAnimation) targetAnimation.kill();
+          },
         });
       }
-
+  
       controls.enabled = false;
     };
-
+  
     const handleTouchStart = (event: TouchEvent) => {
-      if (event.touches.length === 2) {
-        if (controls) controls.enabled = true;
-      } else if (event.touches.length === 1) {
-        if (controls) controls.enabled = false;
+      if (controls) {
+        controls.enabled = event.touches.length === 2;
       }
     };
-
+  
     window.addEventListener('touchstart', handleTouchStart, { passive: false });
-
-    (controls as unknown as { addEventListener: (type: string, listener: EventListener) => void })
-      .addEventListener('end', handleEnd as EventListener);
-
+  
+    (controls as OrbitControlsImpl).addEventListener('end', handleEnd);
+  
     return () => {
       window.removeEventListener('touchstart', handleTouchStart);
-      (controls as unknown as { removeEventListener: (type: string, listener: EventListener) => void })
-        .removeEventListener('end', handleEnd as EventListener);
+      (controls as OrbitControlsImpl).removeEventListener('end', handleEnd);
     };
   }, [camera, initialPosition, initialTarget]);
-
+  
   return (
     <OrbitControls
       ref={controlsRef}
