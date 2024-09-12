@@ -1,7 +1,22 @@
+"use client";
 import { ThreeDCardDemo } from "@/components/ui/Card3d";
 import { ThreeDCardDemo2 } from "@/components/ui/Card3d-2";
+import { Imagecard } from "@/components/ui/Image3dcard";
+import { CookoffCardMobile } from "@/components/ui/MobileCookoffCard";
+import { ClueminatiMobileCard } from "@/components/ui/MobileClueminatiCard";
+import { useEffect, useState } from "react";
 import React from "react";
 const EventPage: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <div className="bg-black text-white py-12 text-center font-['IBM_Plex_Mono'] min-h-screen flex flex-col justify-center items-center">
       <h2 className="text-[8vw]  sm:text-[4vw] mb-[8vw] sm:mb-[3vw] font-bold ibm-plex-mono-bold">
@@ -10,7 +25,7 @@ const EventPage: React.FC = () => {
 
       <p className="max-w-7xl px-4 mx-auto text-[4vw] sm:text-xl sm:mx-14 mb-[10vw] sm:mb-[5vw] leading-relaxed ibm-plex-mono-regular">
         Join us at graVITas for two of the most exhilarating events of the
-        year!&nbsp; <strong className="text-[#B7AB98]">CLUEMINATI 2.0 </strong>
+        year!&nbsp;<strong className="text-[#B7AB98]">CLUEMINATI 2.0 </strong>
         will push your limits with intricate puzzles and a high-stakes treasure
         hunt, while the 9th edition of
         <strong className="text-[#B7AB98]"> COOK-OFF </strong> celebrates
@@ -21,8 +36,20 @@ const EventPage: React.FC = () => {
         extraordinary!
       </p>
 
-      <ThreeDCardDemo />
-      <ThreeDCardDemo2 />
+      {!isMobile && (
+        <div>
+          <ThreeDCardDemo />
+          <Imagecard mainimage="IMG_1938.jpg" />
+          <ThreeDCardDemo2 />
+          <Imagecard mainimage="clueminatiimg.jpg" />
+        </div>
+      )}
+      {isMobile && (
+        <div>
+          <CookoffCardMobile />
+          <ClueminatiMobileCard />
+        </div>
+      )}
     </div>
   );
 };
