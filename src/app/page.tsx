@@ -7,7 +7,7 @@ import Stuff from "@/components/Stuff";
 import EventPage from "@/components/sections/Events/eventpage";
 import Loader from "@/components/ui/Loader";
 import Head from "next/head";
-import Timer from "@/components/timer";
+import Timer from "@/components/timer"
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -31,7 +31,7 @@ export default function Home() {
         <div className="w-full h-[80vh] md:h-screen absolute -right-2 md:-right-0 top-32 md:-top-0 2xl:-top-12">
           <Stuff />
         </div>
-        {/* <EventPage /> */}
+        <EventPage />
 
         <Timer launchDate="2024-09-20T08:00:00" />
         <MarqueeComponent />
