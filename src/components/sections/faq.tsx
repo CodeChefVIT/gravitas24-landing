@@ -60,7 +60,7 @@ const FAQComponent: React.FC = () => {
               </span>
             </button>
             <div
-              className={`overflow-hidden transition-all duration-500 ease-in-out ${
+              className={`overflow-hidden transition-all ease-in-out ${
                 openIndex === index ? "max-h-screen" : "max-h-0"
               }`}
             >

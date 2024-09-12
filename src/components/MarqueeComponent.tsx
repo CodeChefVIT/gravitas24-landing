@@ -43,6 +43,10 @@ const MarqueeComponent: React.FC = () => {
         <div className="bg-white w-1/2 h-2"></div>
         <div className="bg-white w-1/2 h-2"></div>
       </div>
+      <div className="flex flex-row items-center w-full">
+        <div className="bg-black w-1/2 h-10"></div>
+        <div className="bg-black w-1/2 h-10"></div>
+      </div>
     </div>
   );
 };

@@ -22,10 +22,10 @@ const EventPage: React.FC = () => {
         extraordinary!
       </p>
 
-      <ThreeDCardDemo />
-      <Imagecard mainimage="IMG_6012.png" />
-      <ThreeDCardDemo2 />
-      <Imagecard mainimage="IMG_6012.png" />
+        <ThreeDCardDemo />
+        <Imagecard mainimage="IMG_1938.jpg" />
+        <ThreeDCardDemo2 />
+        <Imagecard mainimage="clueminatiimg.jpg" />
     </div>
   );
 };

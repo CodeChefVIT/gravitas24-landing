@@ -9,7 +9,6 @@ export function Imagecard({mainimage}: {mainimage: string}) {
     <CardContainer className="inter-var">
       <CardBody className="bg-[#D9D9D9] md:block hidden mx-5 border-black border-2 p-2 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1]  w-xl sm:w-[880px] h-auto rounded-3xl md:p-3">
         
-        {/* Overlay Image */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/noisy-background.jpg"
@@ -20,14 +19,13 @@ export function Imagecard({mainimage}: {mainimage: string}) {
           />
         </div>
 
-        {/* Main Content */}
         <div className="relative border-black border-2 p-2 rounded-xl z-10">
           <CardItem translateZ="100" className="w-full h-full border-8 border-black p-0.5">
             <Image
               src={`/${mainimage}`}
               height="1024"
               width="1024"
-              className="h-full w-full object-cover group-hover/card:shadow-xl"
+              className="h-96 w-full object-cover group-hover/card:shadow-xl"
               alt="thumbnail"
             />
           </CardItem>
