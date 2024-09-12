@@ -1,10 +1,22 @@
+"use client";
 import { ThreeDCardDemo } from "@/components/ui/Card3d";
 import { ThreeDCardDemo2 } from "@/components/ui/Card3d-2";
 import { Imagecard } from "@/components/ui/Image3dcard";
 import { CookoffCardMobile } from "@/components/ui/MobileCookoffCard";
 import { ClueminatiMobileCard } from "@/components/ui/MobileClueminatiCard";
+import { useEffect, useState } from "react";
 import React from "react";
 const EventPage: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <div className="bg-black text-white py-12 text-center font-['IBM_Plex_Mono'] min-h-screen flex flex-col justify-center items-center">
       <h2 className="text-[8vw]  sm:text-[4vw] mb-[8vw] sm:mb-[3vw] font-bold ibm-plex-mono-bold">
@@ -24,16 +36,20 @@ const EventPage: React.FC = () => {
         extraordinary!
       </p>
 
-      <div className="hidden md:block">
-        <ThreeDCardDemo />
-        <Imagecard mainimage="IMG_1938.jpg" />
-        <ThreeDCardDemo2 />
-        <Imagecard mainimage="clueminatiimg.jpg" />
-      </div>
-      <div className="block md:hidden">
-        <CookoffCardMobile />
-        <ClueminatiMobileCard />
-      </div>
+      {!isMobile && (
+        <div>
+          <ThreeDCardDemo />
+          <Imagecard mainimage="IMG_1938.jpg" />
+          <ThreeDCardDemo2 />
+          <Imagecard mainimage="clueminatiimg.jpg" />
+        </div>
+      )}
+      {isMobile && (
+        <div>
+          <CookoffCardMobile />
+          <ClueminatiMobileCard />
+        </div>
+      )}
     </div>
   );
 };
