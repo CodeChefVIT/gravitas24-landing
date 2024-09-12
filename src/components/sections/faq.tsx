@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
 import { faqs } from "@/lib/faqdata";
+import React, { useState } from "react";
 
 const FAQComponent: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -31,7 +31,9 @@ const FAQComponent: React.FC = () => {
           >
             <button
               className={`flex w-full items-center justify-between p-4 text-left font-audiowide transition-colors duration-300 ${
-                openIndex === index ? "bg-white text-black" : "bg-black text-white"
+                openIndex === index
+                  ? "bg-white text-black"
+                  : "bg-black text-white"
               }`}
               onClick={() => toggleAnswer(index)}
             >
