@@ -1,6 +1,8 @@
 import { ThreeDCardDemo } from "@/components/ui/Card3d";
 import { ThreeDCardDemo2 } from "@/components/ui/Card3d-2";
 import { Imagecard } from "@/components/ui/Image3dcard";
+import { CookoffCardMobile } from "@/components/ui/MobileCookoffCard";
+import { ClueminatiMobileCard } from "@/components/ui/MobileClueminatiCard";
 import React from "react";
 const EventPage: React.FC = () => {
   return (
@@ -22,10 +24,16 @@ const EventPage: React.FC = () => {
         extraordinary!
       </p>
 
+      <div className="hidden md:block">
         <ThreeDCardDemo />
         <Imagecard mainimage="IMG_1938.jpg" />
         <ThreeDCardDemo2 />
         <Imagecard mainimage="clueminatiimg.jpg" />
+      </div>
+      <div className="block md:hidden">
+        <CookoffCardMobile />
+        <ClueminatiMobileCard />
+      </div>
     </div>
   );
 };
