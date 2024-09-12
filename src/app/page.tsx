@@ -31,7 +31,7 @@ export default function Home() {
         <div className="w-full h-[80vh] md:h-screen absolute -right-2 md:-right-0 top-32 md:-top-0 2xl:-top-12">
           <Stuff />
         </div>
-        <EventPage />
+        {/* <EventPage /> */}
         <Timer launchDate="2024-09-20T08:00:00" />
         <MarqueeComponent />
         <Footer />
