@@ -32,6 +32,10 @@ export default function Home() {
           <Stuff />
         </div>
         {/* <EventPage /> */}
+        <Footer />
+        <Footer />
+        <Footer />
+        <Footer />
         <Timer launchDate="2024-09-20T08:00:00" />
         <MarqueeComponent />
         <Footer />
