@@ -16,9 +16,9 @@ const FAQComponent: React.FC = () => {
 
   return (
     <section id="faq">
-      <div className="bg-black p-6 px-20 py-40">
+      <div className="bg-black p-6 px-10 lg:px-20 py-20 lg:py-40">
         <div style={audiowide}>
-          <h1 className="mb-2 text-left text-7xl text-white font-audiowide">
+          <h1 className="mb-4 lg:mb-8 text-left text-3xl lg:text-6xl text-white font-audiowide">
             FAQs
           </h1>
         </div>
@@ -26,19 +26,19 @@ const FAQComponent: React.FC = () => {
     {faqs.map((faq, index) => (
         <div style={audiowide} key={index} className="mb-4 border-b border-white pb-4" >
         <button
-            className={`flex w-full items-center justify-between p-4 text-left font-audiowide transition-colors duration-300 ${
+            className={`flex w-full items-center justify-between p-2 lg:p-4 text-left font-audiowide transition-colors duration-300 ${
             openIndex === index? "bg-white text-black" : "bg-black text-white" }`}onClick={() => toggleAnswer(index)}>
 
             <span className="flex items-center space-x-2">
             
-            <span className={`text-6xl font-audiowide transition-colors duration-300 ${openIndex === index ? "text-black" : "text-white"}`}>
+            <span className={`text-xl lg:text-4xl font-audiowide transition-colors duration-300 ${openIndex === index ? "text-black" : "text-white"}`}>
                   Q.
             </span>
-            <span className={`font-audiowide text-2xl pl-8 transition-colors duration-300 ${openIndex === index ? "text-black" : "text-white" }`}>
+            <span className={`font-audiowide text-base lg:text-xl pl-4 lg:pl-8 transition-colors duration-300 ${openIndex === index ? "text-black" : "text-white" }`}>
                   {faq.question}
             </span>
             </span>
-            <span className={`transform text-5xl transition-transform duration-300 ${ openIndex === index ? "rotate-180" : ""}`}>
+            <span className={`transform text-2xl lg:text-4xl transition-transform duration-300 ${ openIndex === index ? "rotate-180" : ""}`}>
                 {openIndex === index ? "x" : "+"} 
             </span>
         </button>
