@@ -16,13 +16,15 @@ const FAQComponent: React.FC = () => {
 
   return (
     <section id="faq">
+
       <div className="bg-black p-6 px-10 lg:px-20 py-20 lg:py-40">
         <div style={audiowide}>
           <h1 className="mb-4 lg:mb-8 text-left text-3xl lg:text-6xl text-white font-audiowide">
+
             FAQs
           </h1>
         </div>
-
+        
     {faqs.map((faq, index) => (
         <div style={audiowide} key={index} className="mb-4 border-b border-white pb-4" >
         <button
@@ -45,9 +47,9 @@ const FAQComponent: React.FC = () => {
         <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openIndex === index ? "max-h-screen" : "max-h-0"}`}>
         <div className="p-4 pl-32 text-black bg-white"> 
                 {faq.answer}
-        </div>
-        </div>
-        </div>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </section>
