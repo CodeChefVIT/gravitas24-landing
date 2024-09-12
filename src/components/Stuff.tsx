@@ -69,7 +69,7 @@ function CameraControls() {
   
     window.addEventListener('touchstart', handleTouchStart, { passive: false });
   
-    // Correct type assertion to handle 'end' event
+   
     (controls as unknown as { addEventListener: (type: string, listener: EventListener) => void })
       .addEventListener('end', handleEnd as EventListener);
   
