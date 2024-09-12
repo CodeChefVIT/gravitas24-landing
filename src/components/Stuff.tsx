@@ -28,7 +28,6 @@ function CameraControls() {
     const handleEnd = () => {
       if (!controls) return;
   
-      
       cameraAnimation = gsap.to(camera.position, {
         x: initialPosition[0],
         y: initialPosition[1],
@@ -41,12 +40,10 @@ function CameraControls() {
         },
         onComplete: () => {
           controls.enabled = true;
-        
           if (cameraAnimation) cameraAnimation.kill();
         },
       });
   
-     
       if (controls.target) {
         targetAnimation = gsap.to(controls.target, {
           x: initialTarget[0],
@@ -56,7 +53,6 @@ function CameraControls() {
           ease: 'power3.out',
           onUpdate: () => controls.update(),
           onComplete: () => {
-           
             if (targetAnimation) targetAnimation.kill();
           },
         });
@@ -73,13 +69,17 @@ function CameraControls() {
   
     window.addEventListener('touchstart', handleTouchStart, { passive: false });
   
-    (controls as OrbitControlsImpl).addEventListener('end', handleEnd);
+    // Correct type assertion to handle 'end' event
+    (controls as unknown as { addEventListener: (type: string, listener: EventListener) => void })
+      .addEventListener('end', handleEnd as EventListener);
   
     return () => {
       window.removeEventListener('touchstart', handleTouchStart);
-      (controls as OrbitControlsImpl).removeEventListener('end', handleEnd);
+      (controls as unknown as { removeEventListener: (type: string, listener: EventListener) => void })
+        .removeEventListener('end', handleEnd as EventListener);
     };
   }, [camera, initialPosition, initialTarget]);
+  
   
   return (
     <OrbitControls
