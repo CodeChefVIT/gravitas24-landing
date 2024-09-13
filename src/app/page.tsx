@@ -7,7 +7,7 @@ import EventPage from "@/components/sections/Events/eventpage";
 import Loader from "@/components/ui/Loader";
 import FAQComponent from "@/components/sections/faq";
 import Timer from "@/components/timer";
-import ResponsiveStuff from "@/components/ResponsiveStuff"; // Import the new component
+import ResponsiveStuff from "@/components/ResponsiveStuff"; 
 import Stuff from "@/components/Stuff";
 
 export default function Home() {
