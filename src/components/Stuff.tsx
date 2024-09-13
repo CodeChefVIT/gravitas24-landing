@@ -171,7 +171,11 @@ const Stuff: React.FC = () => {
   return (
     <Canvas
       ref={canvasRef}
-      style={{ touchAction: 'none', WebkitUserSelect: 'none', WebkitTapHighlightColor: 'transparent' }}
+      style={{
+        touchAction: 'none',
+        WebkitUserSelect: 'none',
+        WebkitTapHighlightColor: 'transparent',
+      }}
       onTouchStart={handleTouchStart as any}
       onTouchMove={handleTouchMove as any}
       onTouchEnd={handleTouchEnd as any}
