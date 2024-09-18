@@ -2,38 +2,59 @@ import Image from "next/image";
 import Link from "next/link";
 const Navbar = () => {
   return (
-    <div className="h-screen bg-cover bg-no-repeat bg-center bg-black bg-[url('/magicpattern-grid-pattern.svg')]">
-      <div className="h-24 flex flex-col sm:flex-row items-center justify-between px-4 sm:px-8 mx-10">
-        <Link href="https://www.codechefvit.com" className="flex z-[100] items-center mb-4 mt-2 sm:mb-0" target="_blank" rel="noopener noreferrer">
+    <div className="h-screen bg-cover bg-no-repeat bg-center bg-black bg-[url('/magicpattern-grid-pattern.svg')] ">
+      <div className="flex flex-row pt-8 items-start justify-between px-10">
+        <Link
+          href="https://sulu.sh/"
+          className=" z-[100] items-center mt-0 sm:mt-2 hidden lg:flex"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image
-            src="Cookoff_Vector.svg"
-            alt="Left Logo"
+            src="/sponsors/sulu.avif"
+            alt="Right Logo"
+            className="md:h-20 w-auto mb-2"
             height={100}
             width={100}
-            className="h-12 w-auto sm:h-16"
           />
         </Link>
-
-        <div className="text-center mb-4 sm:mb-0">
-          <h1 className="text-white text-3xl sm:text-7xl mt-1 md:mt-20 font-bold audiowide">
-            CodeChef-VIT
-          </h1>
-          <p className="text-white text-lg sm:text-xl my-1 md:my-2 font-light audiowide">
-            Presents
-          </p>
-          <p className="text-white text-xl sm:text-3xl hidden sm:block font-bold audiowide">
+        <div className="flex flex-col items-center gap-4 md:text-4xl text-xl mx-auto">
+          <div className="flex flex-row items-center gap-4">
+            <div className="text-center  sm:mb-0 text-white  font-bold audiowide">
+              CodeChef-VIT
+            </div>
+            <p className="text-white ">&</p>
+            <Link
+              href="https://musclemind.com/?srsltid=AfmBOopLCJTyvzcH_VZov3Cs97BCeOrmiZ3NORI11Q0KkCXPqSJPWYRQ"
+              className="flex z-[100] items-center mt-0 sm:mt-2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/sponsors/Musclemind_Vector.svg"
+                alt="Right Logo"
+                className="md:h-20 w-auto mb-2 h-8 md:mt-0 mt-1"
+                height={100}
+                width={100}
+              />
+            </Link>
+          </div>
+          <p className="text-white  audiowide -mt-2 mb-2">Presents</p>
+          <p className="text-white  fonr-bold audiowide whitespace-nowrap">
             CookOff 9.0 | Clueminati 2.0
-          </p>
-          <p className="text-white text-xl sm:text-3xl sm:hidden font-bold audiowide">
-            CookOff 9.0 and <br /> Clueminati 2.0
           </p>
         </div>
 
-        <Link href="https://musclemind.com/?srsltid=AfmBOopLCJTyvzcH_VZov3Cs97BCeOrmiZ3NORI11Q0KkCXPqSJPWYRQ" className="flex z-[100] items-center mt-0 sm:mt-2" target="_blank" rel="noopener noreferrer">
+        <Link
+          href="https://judge0.com"
+          className="flex z-[100] items-center mt-0 sm:mt-2 hidden lg:flex"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image
-            src="Musclemind_Vector.svg"
+            src="/sponsors/judge0.png"
             alt="Right Logo"
-            className="h-12 w-auto sm:h-16"
+            className="md:h-16 w-auto mt-4"
             height={100}
             width={100}
           />
