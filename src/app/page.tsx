@@ -62,7 +62,7 @@ export default function Home() {
           </div>
         </div>
         <EventPage />
-        <Timer launchDate="2024-09-27T07:00:00" />
+        <Timer launchDate="2024-09-29T07:00:00" />
         <FAQComponent />
         <MarqueeComponent />
         <Footer />
