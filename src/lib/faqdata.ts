@@ -18,7 +18,7 @@ export interface FAQItem {
     },
     {
       question: "Is there a registration fee?",
-      answer: "Yes, 200inr (excluding GST).",
+      answer: "Yes, ₹ 200 (excluding GST).",
     },
     {
       question: "How can I register?",
