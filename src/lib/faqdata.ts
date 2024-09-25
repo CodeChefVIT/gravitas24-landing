@@ -14,16 +14,15 @@ export interface FAQItem {
     },
     {
       question: "When is CookOff-9.0",
-      answer: "CookOff wil be held on 29th September.",
+      answer: "CookOff will be held on 29th September.",
     },
     {
       question: "Is there a registration fee?",
-      answer: "Yes, ₹ 200 (excluding GST).",
+      answer: "Yes, ₹200 (excluding GST).",
     },
     {
       question: "How can I register?",
       answer: "Registrations can be done on the graVITas portal itself.",
-      
     },
     {
       question: "What languages are supported?",
@@ -31,7 +30,7 @@ export interface FAQItem {
     },
     {
       question: "Can we bring our laptops?",
-      answer: "Yes, your own devices will have to brought to the venue.",
+      answer: "Yes, you'll be required to bring your own devices.",
     },
     {
       question: "Will CookOff be online?",
