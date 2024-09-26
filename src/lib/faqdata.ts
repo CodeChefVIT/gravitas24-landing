@@ -5,7 +5,7 @@ export interface FAQItem {
   
   export const faqs: FAQItem[] = [
     {
-      question: "What is Cook-off-9.0",
+      question: "What is CookOff-9.0",
       answer: "A competitive coding event with increasing rounds of difficulty and elimination until there is an ultimate winner. It is an individual event which requires skill, problem solving and competence.",
     },
     {
@@ -33,7 +33,7 @@ export interface FAQItem {
       answer: "Yes, you'll be required to bring your own devices.",
     },
     {
-      question: "Will CookOff be online?",
+      question: "Will CookOff-9.0 be online?",
       answer: "No, CookOff will be held offline in Anna Auditorium on 29th September.",
     },
     {
