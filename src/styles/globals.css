@@ -1,15 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
 /* @import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap'); */
 
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@200;300;400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 
 @layer base {
   :root {
@@ -101,19 +101,18 @@
   font-style: normal;
 }
 @media (min-width: 250px) {
-  .logo_div img{
-  height: 27px;
-}
+  .logo_div img {
+    height: 27px;
+  }
 }
 @media (min-width: 640px) {
-  .logo_div img{
-  height: 45px;
+  .logo_div img {
+    height: 45px;
+  }
 }
-}
-.footer-logo{
+.footer-logo {
   height: 50px;
   width: 50px;
-  
 }
 .ibm-plex-mono-regular {
   font-family: "IBM Plex Mono", monospace;
@@ -153,8 +152,6 @@
   font-style: normal;
 }
 
-
-
 @font-face {
   font-family: "Mukta Malar";
   src: url("./../../public/MuktaMalar-Regular.ttf");
@@ -188,8 +185,6 @@
   font-style: normal;
 }
 
-
-
 /* About Section */
 /* ********************** */
 .overlay {
@@ -197,7 +192,6 @@
   z-index: 100;
   position: relative;
 }
-
 
 /* .overlay:before {
   content: "";
